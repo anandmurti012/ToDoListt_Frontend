@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import ToDo from "./components/ToDo";
 import { getAllToDo,addToDo,updateTodo, deleteToDo } from "./utils/HandleApi";
+import Secure from "./components/secure";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
 
         </div>
       </div>
+      <Secure />
     </div>
   );
 }
