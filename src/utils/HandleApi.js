@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const baseUrl = "https://todolist-82o3.onrender.com"  //This is todolist backend url from render.com
-const baseUrl = "http://localhost:5000"
+const baseUrl = "https://todolist-82o3.onrender.com"  //This is todolist backend url from render.com
+// const baseUrl = "http://localhost:5000"
 
 const getAllToDo = (setToDo) => {
     axios
