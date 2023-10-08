@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = "http://localhost:5010"
+const baseUrl = "https://todolist-82o3.onrender.com"  //This is todolist backend url from render.com
+// const baseUrl = "http://localhost:5000"
 
 const getAllToDo = (setToDo) => {
     axios
@@ -13,14 +14,13 @@ const getAllToDo = (setToDo) => {
 
 //Save ToDO
 const addToDo = (text, setText, setToDo) => {
-axios
-.post(`${baseUrl}/save`, {text})
-.then((data) => {
-    console.log(data);
-    setText("")
-    getAllToDo(setToDo)
-})
-.catch((err) => console.log(err))
+    axios
+    .post(`${baseUrl}/save`, {text})
+    .then((data) => {
+        console.log(data);
+        setText("")
+        getAllToDo(setToDo)
+    })
 }
 
 //Update todo
