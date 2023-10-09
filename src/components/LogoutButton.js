@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Content from "./Content";
 
 const LogoutButton = () => {
-	const { logout, isAuthenticated } = useAuth0();
+	const { logout, isAuthenticated ,user } = useAuth0();
 
 	if (isAuthenticated) {
 		return (
@@ -14,6 +14,7 @@ const LogoutButton = () => {
 					onClick={() => logout({ returnTo: window.location.origin })}>
 					Log Out
 				</button>
+                <span>{isAuthenticated && <h3 style={{"color":"grey", "fontFamily":"cursive"}}>Hello {user.name}</h3>}</span>
 				<br />
                 <Content />
 				{/* <Profile /> */}
