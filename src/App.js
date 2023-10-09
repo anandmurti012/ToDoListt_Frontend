@@ -1,45 +1,33 @@
 
-// import './App.css';
+import './App.css';
+import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import { useEffect, useState } from "react";
+// import ToDo from "./components/ToDo";
 
-import { useEffect, useState } from "react";
-import ToDo from "./components/ToDo";
-import { getAllToDo,addToDo,updateTodo, deleteToDo } from "./utils/HandleApi";
- 
+// import Content from './components/Content';
+
 
 
 function App() {
-  const [toDo, setToDo] = useState([])
-  const [text, setText] = useState("")
-  const [isUpdating, setIsUpdating] = useState(false)
-  const [toDoId, setToDoId] = useState(false)
-  useEffect(() => {
-    getAllToDo(setToDo)
-  }, [])
 
-  const updateMode = (_id, text) =>{
-    setIsUpdating(true)
-    setText(text)
-    setToDoId(_id)
-  }
   return (
     <div className="App">
-      <div className='container'>
-        <h1>Todo App</h1>
-        <div className='top'>
-          <input type='text' placeholder='Add ToDos...' value={text} onChange={(e) => setText(e.target.value)} />
-          <div className="add" onClick={isUpdating ? () => updateTodo(toDoId, text, setToDo, setText, setIsUpdating) : () => addToDo(text, setText, setToDo)}>{isUpdating ? "Update" : "Add"}</div>
+      {/* Authentication*/}
+      <nav className="navbar">
+        <div className="container-fluid">
+          <span className="appName">
+          Welcome to ToDoList App </span>
+          <LoginButton />
         </div>
+      </nav>
+      <div className='content'>ToDoList</div>
+      
+      <LogoutButton />
+      {/* <Content /> */}
+      {/*====================== */}
 
-        <div className="list">
-
-          {toDo.map((item) => <ToDo key={item._id} text={item.text} updateMode={() => updateMode(item._id, item.text)} deleteToDo = {() => deleteToDo(item._id, setToDo)}/>)}
-          {/* Calling ToDo */}
-
-          {/* <ToDo text="Hii There" />
-          <ToDo text="Hii There" />
-          <ToDo text="Hii There" /> */}
-        </div>
-      </div>
     </div>
   );
 }
